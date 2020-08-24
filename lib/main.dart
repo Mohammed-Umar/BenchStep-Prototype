@@ -1,3 +1,4 @@
+import 'package:BenchStep_Proto/blocs/courses_bloc.dart';
 import 'package:BenchStep_Proto/screens/login.dart';
 import 'package:BenchStep_Proto/screens/main/downloads.dart';
 import 'package:BenchStep_Proto/screens/main/explore.dart';
@@ -7,6 +8,7 @@ import 'package:BenchStep_Proto/screens/main/recommended.dart';
 import 'package:BenchStep_Proto/screens/signup.dart';
 import 'package:BenchStep_Proto/screens/start_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'screens/main/main_page.dart';
 
@@ -19,26 +21,31 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: _title,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<CoursesBloc>.value(value: CoursesBloc())
+      ],
+      child: MaterialApp(
+        title: _title,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        debugShowCheckedModeBanner: false,
+        // home: MyHomePage(title: _title),
+        initialRoute: '/',
+        routes: <String, WidgetBuilder>{
+          '/': (context) => StartScreen(),
+          '/Login': (context) => LoginScreen(),
+          '/SignUp': (context) => SignUpScreen(),
+          '/MainPage': (context) => MainScreen(),
+          '/Explore': (context) => ExploreScreen(),
+          '/Recommended': (context) => RecommendedScreen(),
+          '/Learn': (context) => LearnScreen(),
+          '/Downloads': (context) => DownloadsScreen(),
+          '/Profile': (context) => ProfileScreen(),
+        },
       ),
-      debugShowCheckedModeBanner: false,
-      // home: MyHomePage(title: _title),
-      initialRoute: '/',
-      routes: <String, WidgetBuilder>{
-        '/': (context) => StartScreen(),
-        '/Login': (context) => LoginScreen(),
-        '/SignUp': (context) => SignUpScreen(),
-        '/MainPage': (context) => MainScreen(),
-        '/Explore': (context) => ExploreScreen(),
-        '/Recommended': (context) => RecommendedScreen(),
-        '/Learn': (context) => LearnScreen(),
-        '/Downloads': (context) => DownloadsScreen(),
-        '/Profile': (context) => ProfileScreen(),
-      },
     );
   }
 }
