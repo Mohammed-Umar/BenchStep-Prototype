@@ -20,28 +20,28 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<BottomNav> navBarItems = [
     BottomNav(
-        iconData: Icons.home,
-        title: "Home",
+        iconData: Icons.explore,
+        title: "Explore",
         initialScreen: ExploreScreen(),
         navigatorKey: GlobalKey<NavigatorState>()),
     BottomNav(
-        iconData: Icons.bookmark_border,
-        title: "Bookmarks",
+        iconData: Icons.star,
+        title: "Recommended",
         initialScreen: RecommendedScreen(),
         navigatorKey: GlobalKey<NavigatorState>()),
     BottomNav(
-        iconData: Icons.person_outline,
-        title: "Profile",
+        iconData: Icons.import_contacts,
+        title: "Learn",
         initialScreen: LearnScreen(),
         navigatorKey: GlobalKey<NavigatorState>()),
     BottomNav(
-        iconData: Icons.notifications_none,
-        title: "Notifications",
+        iconData: Icons.cloud_download,
+        title: "Downloads",
         initialScreen: DownloadsScreen(),
         navigatorKey: GlobalKey<NavigatorState>()),
     BottomNav(
-        iconData: Icons.dehaze,
-        title: "Menu",
+        iconData: Icons.account_circle,
+        title: "Profile",
         initialScreen: ProfileScreen(),
         navigatorKey: GlobalKey<NavigatorState>()),
   ];
