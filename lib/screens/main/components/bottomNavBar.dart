@@ -24,13 +24,12 @@ class BottomNavBar extends StatelessWidget {
           items: this
               .navBarItems
               .map((flow) => BottomNavigationBarItem(
-                  icon: Icon(flow.iconData), title: Text(flow.title)))
+                  icon: Icon(flow.iconData),
+                  title: Text(flow.title, style: TextStyle(fontSize: 11))))
               .toList(),
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.black,
-          selectedItemColor: Colors.white,
+          backgroundColor: Colors.white,
+          selectedItemColor: Colors.blue[700],
           unselectedItemColor: Colors.grey[600],
           onTap: (int index) {
             this.onBottomNavChange(index);
